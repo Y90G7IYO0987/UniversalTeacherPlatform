@@ -1,0 +1,47 @@
+.auth-section {
+    max-width: 420px;
+    margin: var(--space-3xl) auto;
+}
+
+.auth-input {
+    width: 100%;
+    font-size: var(--font-size-lg);
+    letter-spacing: 4px;
+    padding: var(--space-md);
+    border: 2px solid var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.auth-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.auth-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+}
+
+.enter-text-field {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.enter-button-box {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.teacher-dashboard .dash-card {
+    background: var(--color-bg-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: all var(--transition-base);
+    cursor: default;
+}
+
+.teacher-dashboard .dash-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+}
