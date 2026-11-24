@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School-Helper | Student</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <div class="header-logo-image"><img src="src/icons/SchoolHelper.png" alt="Logo"></div>
+            <h1 class="logo-text">Панель ученика</h1>
+        </div>
+        <button class="btn-primary danger" id="LeaveButton">Выйти</button>
+    </header>
+
+    <section class="filters-section">
+        <div class="filters-box">
+            <h2 style="font-size: 18px; margin-bottom: 16px;">Фильтры</h2>
+            <div class="filters-container">
+                <div>
+                    <label style="color: var(--text-muted); font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">ПРЕДМЕТ:</label>
+                    <select id="filterSubject">
+                        <option value="">Все предметы</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="color: var(--text-muted); font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">КЛАСС:</label>
+                    <!-- ✅ Список классов сгенерируется через JS -->
+                    <select id="filterGrade">
+                        <option value="">Все классы</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="last-added-lessons-section">
+        <div class="dash-card" style="margin-bottom: 24px;">
+            <h3 style="font-size: 16px; margin-bottom: 8px; color: var(--text-muted);">Аналитика</h3>
+            <p style="font-size: 14px;">
+                Самый популярный предмет: <span id="topSubject" style="color: var(--primary); font-weight: 700;">Загрузка...</span>
+            </p>
+        </div>
+
+        <ul class="last-added-lessons-list" id="studentLessonsList">
+            <!-- JS заполнит -->
+        </ul>
+    </section>
+
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/student.js"></script>
+</body>
+</html>
