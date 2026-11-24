@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School-Helper | Admin</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <style>
+        .screen { display: none; }
+        .screen.active { display: block; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <div class="header-logo-image"><img src="src/icons/SchoolHelper.png" alt="Logo"></div>
+            <h1 class="logo-text">Панель учителя</h1>
+        </div>
+        <button class="btn-primary danger" id="LeaveButton">Выйти</button>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Поиск по урокам...">
+        <span id="lessonCounter">0 записей</span>
+    </div>
+
+    <!-- Экран меню -->
+    <section class="teacher-tools-section screen active" id="menuScreen">
+        <div class="grid-3">
+            <div class="dash-card">
+                <h2 class="dash-title">Мои предметы</h2>
+                <ul class="teacher-items-list" id="mySubjectsList">
+                    <li class="teacher-item" style="color: var(--text-muted);">Загрузка...</li>
+                </ul>
+            </div>
+            
+            <div class="dash-card" style="display: flex; align-items: center; justify-content: center;">
+                <button class="btn-primary" id="CreateTeacherItems" style="width: 100%; padding: 16px; font-size: 16px;">
+                    + Создать урок
+                </button>
+            </div>
+            
+            <div class="dash-card" id="allLessonsBtn" style="cursor: pointer;">
+                <h2 class="dash-title">Все уроки</h2>
+                <p style="color: var(--text-muted); font-size: 14px;">Перейти к списку</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экран уроков -->
+    <div class="last-added-lessons-section screen" id="lessonsScreen">
+        <button class="btn-primary" id="backToMenuBtn" style="margin-bottom: 20px; background: var(--bg-white); color: var(--text-main); border: 1px solid var(--border-color);">← Назад в меню</button>
+        <h2 class="last-added-lessons-text" id="lessonsTitle">Все уроки</h2>
+        <ul class="last-added-lessons-list" id="teacherLessonsList"></ul>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal-overlay" id="createModal">
+        <div class="modal-content">
+            <h2 style="font-size: 20px; margin-bottom: 24px;">Новый урок</h2>
+            
+            <div class="form-group">
+                <label>Название урока</label>
+                <input type="text" id="newTitle" class="auth-input" placeholder="Например: Резьба по дереву" style="text-align: left;">
+            </div>
+            
+            <div class="form-group">
+                <label>Класс</label>
+                <!-- ✅ ИСПРАВЛЕНО: Теперь это выпадающий список -->
+                <select id="newGrade" class="auth-input" style="text-align: left; padding: 12px;">
+                    <option value="5А">5А</option>
+                    <option value="5Б">5Б</option>
+                    <option value="6А">6А</option>
+                    <option value="6Б">6Б</option>
+                    <option value="7А">7А</option>
+                    <option value="7Б">7Б</option>
+                    <option value="8А">8А</option>
+                    <option value="8Б">8Б</option>
+                    <option value="9А">9А</option>
+                    <option value="9Б">9Б</option>
+                    <option value="10А">10А</option>
+                    <option value="11А">11А</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Дата урока</label>
+                <input type="date" id="newDate" class="auth-input" style="text-align: left;">
+            </div>
+
+            <div class="form-group">
+                <label>Ссылка на материал</label>
+                <input type="url" id="newLink" class="auth-input" placeholder="https://..." style="text-align: left;">
+            </div>
+            
+            <div class="form-group">
+                <label>Предмет</label>
+                <select id="newSubject" class="auth-input" style="text-align: left; padding: 12px;">
+                    <!-- JS заполнит этот список -->
+                </select>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 28px;">
+                <button class="btn-primary" id="saveLessonBtn" style="flex: 1;">Сохранить</button>
+                <button class="btn-primary danger" id="closeModalBtn" style="flex: 1;">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/teacher.js"></script>
+</body>
+</html>
